@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+.regi_div {
+	background-color: #FFFAF0;
+	margin: auto;
+	text-align: center;
+	width: 1500px;
+	height: 100%;
+	
+}
+
+.regi_tr {
+	width: 1500px;
+	text-align: center;
+	margin: auto;
+}
+
+.regi_in_btn {
+    padding: 12px 20px;
+    margin-top: 15px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    outline: none !important
+}
+
+.regi_in_btn:hover {
+	background-color:#fff;
+	color:blue;
+    opacity: 1;
+    border: 1px solid #000;
+}
+
+.regi_in_btn {
+	margin: 10px;
+    background-color: #1E90FF;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.regi_out_btn {
+    padding: 12px 20px;
+    margin-top: 15px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    outline: none !important
+}
+
+.regi_out_btn:hover {
+	background-color:#fff;
+	color:red;
+    opacity: 1;
+    border: 1px solid #000;
+}
+
+.regi_out_btn {
+	margin: 10px;
+    background-color: #DC143C;
+    color: #fff;
+    border-radius: 4px;
+}
+

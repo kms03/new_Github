@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardDAO">
+
+	<select id="getBoardList" resultType="board">
+		select * from board
+		order by bseq desc
+	</select>
+
+	<insert id="insertBoard">
+		insert into board(bseq, id, title, content)
+		values(board_seq.nextval, #{id}, #{title}, #{content})
+	</insert>
+	
+	<select id="getBoard" parameterType="int" resultType="board">
+		select * from board
+		where bseq = #{bseq}
+	</select>
+	
+	<update id="updateCnt" parameterType="int">
+		update board set cnt = cnt + 1
+		where bseq = #{bseq}
+	</update>
+	
+	<update id="updateBoard">
+		update board set title = #{title}, content = #{content}
+		where bseq = #{bseq}
+	</update>
+	
+	<delete id="deleteBoard">
+		delete board
+		where bseq = #{bseq}
+	</delete>
+	
+	<delete id="deleteBoardById">
+		delete from board
+		where id = #{id}
+	</delete>
+	
+	<select id="listCount" resultType="int">
+		SELECT COUNT(bseq)
+		  FROM board
+		  where 1=1
+		  <include refid="search"></include>
+		  and bseq > 0
+	</select>
+	
+	<select id="listPage" resultType="board" parameterType="criteria">
+		SELECT  *
+		 FROM ( 
+		        SELECT bseq, 
+		               TITLE, 
+		               CONTENT, 
+		               id, 
+		               REGDATE,
+		               cnt,
+		               ROW_NUMBER() OVER(ORDER BY bseq DESC) AS RNUM
+		         FROM board
+		         where 1=1
+		         	<include refid="search"></include> 
+		                       ) MP
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		ORDER BY bseq DESC
+	</select>
+	
+	<select id="newBoard" resultType="board">
+	<![CDATA[
+		select * from
+		(select rownum as rn, a.* 
+		from (select * from board
+		order by bseq desc) a
+		)
+		where rn < 5
+	]]>	
+	</select>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">AND TITLE LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'c'.toString()">AND CONTENT LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'w'.toString()">AND ID LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'tc'.toString()">AND (TITLE LIKE '%' || #{keyword} || '%') or (CONTENT LIKE '%' || #{keyword} || '%')</if>
+		</if>
+	</sql>
+	
+</mapper>

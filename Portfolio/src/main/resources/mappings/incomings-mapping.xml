@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="IncomingsDAO">
+
+	<select id="incomingsList" parameterType="String" resultType="incomings">
+		SELECT *
+		from incomings
+		where i_date BETWEEN ADD_MONTHS(TO_DATE(to_char(trunc(sysdate, 'mm'), 'yyyy/mm/dd'),'YYYY/MM/DD'),0)
+		and add_months(to_char(last_day(sysdate), 'yyyy/mm/dd'), 0)
+		and id = #{id}
+		<include refid="search"></include>
+		order by i_date desc
+	</select>
+	
+	<select id="prevMonth" resultType="incomings">
+		SELECT *
+		from incomings
+		where i_date 
+		BETWEEN ADD_MONTHS(TO_DATE(to_char(trunc(#{i_date}, 'mm'), 'yyyy/mm/dd'),'YYYY/MM/DD'), -1)
+		and add_months(to_char(last_day(#{i_date}), 'yyyy/mm/dd'), -1)
+		and id = #{id}
+		<include refid="search"></include>
+		order by i_date desc
+	</select>
+	
+	<select id="nextMonth" resultType="incomings">
+		SELECT *
+		from incomings
+		where i_date 
+		BETWEEN ADD_MONTHS(TO_DATE(to_char(trunc(#{i_date}, 'mm'), 'yyyy/mm/dd'),'YYYY/MM/DD'), 1)
+		and add_months(to_char(last_day(#{i_date}), 'yyyy/mm/dd'), 1)
+		and id = #{id}
+		<include refid="search"></include>
+		order by i_date desc
+	</select>
+	
+	<insert id="insertIncomings">
+		insert into incomings
+		values(incomings_seq.nextval, #{iprice}, #{i_use}, #{i_category}, #{i_memo},
+		#{i_date}, #{id})
+	</insert>
+	
+	<select id="incomingsListCategory" parameterType="incomings" resultType="incomings">
+		SELECT *
+		from incomings
+		where i_date BETWEEN ADD_MONTHS(TO_DATE(to_char(trunc(#{i_date}, 'mm'), 'yyyy/mm/dd'),'YYYY/MM/DD'),0)
+		and add_months(to_char(last_day(#{i_date}), 'yyyy/mm/dd'), 0)
+		and id = #{id} and i_category = #{i_category}
+		order by i_date desc
+	</select>
+	
+	<delete id="incomingsDelete">
+		delete from incomings
+		where iseq = #{iseq} and id = #{id}
+	</delete>
+	
+	<select id="totalIncomingsPrice" resultType="int">
+		select NVL2(sum(iprice), sum(iprice), 0)
+		from incomings
+		where i_date between
+		(select min(i_date)
+		from incomings) and add_months(to_char(last_day(#{i_date}), 'yyyy/mm/dd'), 0)
+	</select>
+	
+	<delete id="incomingsDeleteById">
+		delete from incomings
+		where id = #{id}
+	</delete>
+
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 'i_use'.toString()">AND i_use LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'i_category'.toString()">AND i_category LIKE '%' || #{keyword} || '%'</if>
+		</if>
+	</sql>
+	
+</mapper>

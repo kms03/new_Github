@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OutgoingsDAO">
+
+	<select id="getOutgoingsList" parameterType="outgoings" resultType="outgoings">
+	SELECT *
+		from outgoings
+		where o_date 
+		BETWEEN ADD_MONTHS(TO_DATE(to_char(trunc(#{o_date}, 'mm'), 'yyyy/mm/dd'),'YYYY/MM/DD'), 0)
+		and add_months(to_char(last_day(#{o_date}), 'yyyy/mm/dd'), 0)
+		and id = #{id}
+		<include refid="search"></include>
+		order by o_date desc
+	</select>
+	
+	<select id="scriGetOutgoingsList" parameterType="outgoings" resultType="criteria">
+	select * from
+	(SELECT *
+		from outgoings
+		where o_date 
+		BETWEEN ADD_MONTHS(TO_DATE(to_char(trunc(#{o_date}, 'mm'), 'yyyy/mm/dd'),'YYYY/MM/DD'), 0)
+		and add_months(to_char(last_day(#{o_date}), 'yyyy/mm/dd'), 0)
+		and id = #{id}
+		<include refid="search"></include>
+		order by o_date desc) MP
+		where 1=1
+		ORDER BY o_date DESC
+	</select>
+	
+	<select id="getOutgoings" resultType="outgoings">
+		select rownum, a.* from outgoings a
+		where o_date BETWEEN ADD_MONTHS(TO_DATE(to_char(trunc(sysdate, 'mm'), 'yyyy/mm/dd'),'YYYY/MM/DD'),0)
+		and add_months(to_char(last_day(sysdate), 'yyyy/mm/dd'), 0)
+		and rownum = 1
+	</select>
+	
+	<select id="prevMonth" resultType="outgoings">
+		SELECT *
+		from outgoings
+		where o_date 
+		BETWEEN ADD_MONTHS(TO_DATE(to_char(trunc(#{o_date}, 'mm'), 'yyyy/mm/dd'),'YYYY/MM/DD'), -1)
+		and add_months(to_char(last_day(#{o_date}), 'yyyy/mm/dd'), -1)
+		and id = #{id}
+		<include refid="search"></include>
+		order by o_date desc
+	</select>
+	
+	<select id="nextMonth" resultType="outgoings">
+		SELECT *
+		from outgoings
+		where o_date 
+		BETWEEN ADD_MONTHS(TO_DATE(to_char(trunc(#{o_date}, 'mm'), 'yyyy/mm/dd'),'YYYY/MM/DD'), 1)
+		and add_months(to_char(last_day(#{o_date}), 'yyyy/mm/dd'), 1)
+		and id = #{id}
+		<include refid="search"></include>
+		order by o_date desc
+	</select>
+	
+	<select id="listCount" resultType="int">
+		SELECT COUNT(oseq)
+		  FROM (select * 
+			from outgoings
+			where o_date 
+			BETWEEN to_date(to_char(trunc(sysdate, 'mm'), 'yyyy/mm/dd')) 
+			and to_date(to_char(last_day(sysdate), 'yyyy/mm/dd'))
+			and id = #{id})
+			where 1=1
+		  <include refid="search"></include>
+		  and oseq > 0
+	</select>
+	
+	<insert id="insertOutgoings">
+		insert into outgoings(oseq, oprice, o_use, o_where, cash_money, o_category, o_memo, o_date, id)
+		values(outgoings_seq.nextval, #{oprice}, #{o_use}, #{o_where}, #{cash_money},
+		#{o_category}, #{o_memo}, #{o_date}, #{id})
+	</insert>
+	
+	<select id="getOutgoingsCategoryList" parameterType="outgoings" resultType="outgoings">
+	select *
+	 from (
+		select rownum as rn, a.*
+		from (
+		select rownum, oseq, oprice, o_use, o_where, cash_money, o_category, o_memo, o_date, id
+		from outgoings
+		where o_date 
+		BETWEEN to_date(to_char(trunc(#{o_date}, 'mm'), 'yyyy/mm/dd')) 
+		and to_date(to_char(last_day(#{o_date}), 'yyyy/mm/dd'))
+		and id = #{id} and o_category = #{o_category}
+		<include refid="search"></include>
+		order by o_date desc
+		) a
+	) WHERE rn BETWEEN #{rowStart} AND #{rowEnd}
+	ORDER BY o_date DESC
+	</select>
+	
+	<delete id="outgoingsDelete">
+		delete from outgoings
+		where id = #{id} and oseq = #{oseq}
+	</delete>
+	
+	<delete id="outgoingsDeleteById">
+		delete from outgoings
+		where id = #{id}
+	</delete>
+	
+	<select id="totalOutgoingsPrice" resultType="int">
+		select NVL2(sum(oprice), sum(oprice), 0)
+		from outgoings
+		where o_date between
+		(select min(o_date)
+		from outgoings) and add_months(to_char(last_day(#{o_date}), 'yyyy/mm/dd'), 0)
+	</select>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 'o_use'.toString()">AND o_use LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'o_where'.toString()">AND o_where LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'cash_money'.toString()">AND cash_money LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'o_category'.toString()">AND o_category LIKE '%' || #{keyword} || '%'</if>
+		</if>
+	</sql>
+	
+</mapper>

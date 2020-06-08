@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<typeAliases>
+		<typeAlias type="com.green.biz.member.MemberVO" alias="member"/>
+		<typeAlias type="com.green.biz.address.AddressVO" alias="address"/>
+		<typeAlias type="com.green.biz.board.BoardVO" alias="board"/>
+		<typeAlias type="com.green.biz.reply.ReplyVO" alias="reply"/>
+		<typeAlias type="com.green.biz.util.SearchCriteria" alias="criteria"/>
+		<typeAlias type="com.green.biz.outgoings.OutgoingsVO" alias="outgoings"/>
+		<typeAlias type="com.green.biz.incomings.IncomingsVO" alias="incomings"/>
+		<typeAlias type="com.green.biz.noticeBoard.NoticeBoardVO" alias="noticeBoard"/>
+		<typeAlias type="com.green.biz.member.WorkerVO" alias="worker"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="mappings/member-mapping.xml"/>
+		<mapper resource="mappings/address-mapping.xml"/>
+		<mapper resource="mappings/board-mapping.xml"/>
+		<mapper resource="mappings/reply-mapping.xml"/>
+		<mapper resource="mappings/outgoings-mapping.xml"/>
+		<mapper resource="mappings/incomings-mapping.xml"/>
+		<mapper resource="mappings/noticeBoard-mapping.xml"/>
+		<mapper resource="mappings/worker-mapping.xml"/>
+	</mappers>
+	
+</configuration>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="NoticeBoardDAO">
+
+	<select id="noticeBoardList" parameterType="noticeBoard" resultType="criteria">
+		select * from
+		(select rownum as rn, a.*
+			from (select * from notice_board) a
+				) where 1=1
+				<include refid="search"></include>
+				and rn between #{rowStart} and #{rowEnd}
+				order by nseq desc
+	</select>
+	
+	<select id="getNoticeBoard" parameterType="int" resultType="noticeBoard">
+		select * from notice_board
+		where nseq = ${nseq}
+	</select>
+	
+	<update id="noticeBoardCnt" parameterType="int">
+		update notice_board set cnt = cnt + 1
+		where nseq = #{nseq}
+	</update>
+	
+	<select id="noticeBoardCount" resultType="int">
+		select count(nseq)
+		from notice_board
+		where 1=1
+		<include refid="search"></include>
+		and nseq > 0
+	</select>
+	
+	<select id="newNoticeBoard" resultType="noticeBoard">
+	<![CDATA[
+		select * from
+		(select rownum as rn, a.* 
+		from (select * from notice_board
+		order by nseq desc) a
+		)
+		where rn < 5
+	]]>	
+	</select>
+	
+	<insert id="insertNoticeBoard">
+		insert into notice_board
+		(nseq, ntitle, n_content, id)
+		values(no_board_seq.nextval, #{ntitle}, #{n_content}, #{id})
+	</insert>
+	
+	<update id="updateNoticeBoard">
+		update notice_board set ntitle = #{ntitle}, n_content = #{n_content}
+		where nseq = #{nseq}
+	</update>
+	
+	<delete id="deleteNoticeBoard">
+		delete notice_board
+		where nseq = #{nseq}
+	</delete>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">AND nTITLE LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'c'.toString()">AND n_CONTENT LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'tc'.toString()">AND (nTITLE LIKE '%' || #{keyword} || '%') or (n_CONTENT LIKE '%' || #{keyword} || '%')</if>
+		</if>
+	</sql>
+	
+</mapper>

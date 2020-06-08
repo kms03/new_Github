@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+.mypageMainDiv {
+	background-color: #FFFAF0;
+	margin:auto;
+	width: 800px;
+	height: 850px;
+	text-align: center;
+}
+
+.mypageMainDiv h1 {
+	margin: 20px;
+	padding: 20px;
+}
+
+.mypage_table {
+	margin: auto;
+	text-align: center;
+}
+
+.my_th {
+	margin: 20px;
+	padding: 20px;
+}
+
+.my_td {
+	width: 200px;
+}
+
+.mypage_message1 {
+	color: red;
+	text-align: center;
+}
+
+.mypage_message2 {
+	color: blue;
+	text-align: center;
+}
+
+.my_td input {
+	width: 400px;
+}
+
+.my_td_zip_num {
+	width: 280px;
+	text-align: left;
+}
+
+.mypage_btn {
+	width: 50%;
+	margin: auto;
+}
+
+.mypage_btn_up {
+    padding: 12px 20px;
+    margin-top: 15px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    outline: none !important
+}
+
+.mypage_btn_up:hover {
+	background-color:#fff;
+	color:blue;
+    opacity: 1;
+    border: 1px solid #000;
+}
+
+.mypage_btn_up {
+    background-color: #1E90FF;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.mypage_btn_re {
+    padding: 12px 20px;
+    margin-top: 15px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    outline: none !important
+}
+
+.mypage_btn_re:hover {
+	background-color:#fff;
+	color:red;
+    opacity: 1;
+    border: 1px solid #000;
+}
+
+.mypage_btn_re {
+    background-color: #DC143C;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.mypage_btn_li {
+    padding: 12px 20px;
+    margin-top: 15px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    outline: none !important
+}
+
+.mypage_btn_li:hover {
+	background-color:#fff;
+	color:black;
+    opacity: 1;
+    border: 1px solid #000;
+}
+
+.mypage_btn_li {
+    background-color: black;
+    color: #fff;
+    border-radius: 4px;
+}
+
+#search_addr {
+	width: 100px;
+}
+
+

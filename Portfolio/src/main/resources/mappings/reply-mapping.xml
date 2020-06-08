@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ReplyDAO">
+
+	<select id="readReply" parameterType="reply" resultType="criteria">
+		select *
+		from (select rownum as rnum, a.* 
+		from (
+			select
+				* from board_reply
+				where bseq = #{bseq}
+				order by rno desc
+		) a
+		)where rnum between #{rowStart} and #{rowEnd}
+		order by rno desc
+	</select>
+	
+	<select id="getReply" parameterType="int" resultType="reply">
+		select * from board_reply
+		where rno = #{rno}
+	</select>
+	
+	<insert id="insertReply">
+		insert into board_reply(bseq, rno, re_content, id)
+		values(#{bseq}, board_reply_seq.nextval, #{re_content}, #{id})
+	</insert>
+	
+	<update id="updateReply">
+		update board_reply set re_content = #{re_content}
+		where rno = #{rno}
+	</update>
+	
+	<delete id="deleteReply">
+		delete from board_reply
+		where rno = #{rno}
+	</delete>
+	
+	<delete id="deleteReplyById">
+		delete from board_reply
+		where id = #{id}
+	</delete>
+	
+	<select id="boardReplyList" resultType="reply">
+		select a.* 
+		from board_reply a, worker b
+		where a.id = b.id
+		and bseq = #{bseq}
+	</select>
+	
+	<select id="replyCount" resultType="int">
+		select count(rno)
+		from board_reply
+		where bseq = #{bseq}
+	</select>
+	
+</mapper>

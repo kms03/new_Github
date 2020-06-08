@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+
+
+body {
+	padding-top: 0px;
+	padding-bottom: 30px;
+	justify-content: center;
+}
+
+
+footer {
+	text-align: center;
+	position: absolute;
+	align-content: center;
+	left: 50%;
+	margin-left: -300px;
+}
+
+main {
+	text-align: center;
+	margin-left: 200px;
+}
+
+.main_image {
+	padding: 0px;
+	margin: 0px;
+	vertical-align: middle;
+}
+
+
+
+header {
+	height: 80px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.rainbow{ animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } 
+@keyframes rainbowLink {     
+ 0% { color: #ff2a2a; }
+ 15% { color: #ff7a2a; }
+ 30% { color: #ffc52a; }
+ 45% { color: #43ff2a; }
+ 60% { color: #2a89ff; }
+ 75% { color: #202082; }
+ 90% { color: #6b2aff; } 
+ 100% { color: #e82aff; }
+}
+
+.row header {
+	text-align: center;
+}
+
+.container {
+	
+	position: relative;
+	text-align: center;
+}
+
+.row header {
+	position: relative;
+}
+
+
+.form-inline {
+	display: block;
+}
+
+
+.board_b_btn {
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    outline: none !important
+}
+
+.board_b_btn:hover {
+	background-color:#fff;
+	color:#000;
+    opacity: 1;
+    border: 1px solid #000;
+}
+
+.board_b_btn {
+    background-color: #000000;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.in_del_btn {
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 13px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    outline: none !important
+}
+
+.in_del_btn:hover {
+	background-color:#000;
+	color:#fff;
+    opacity: 1;
+    border: 1px solid #000;
+}
+
+.in_del_btn {
+    background-color: #FFF;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.mem_delcl_btn {
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    outline: none !important
+}
+
+.mem_delcl_btn:hover {
+	background-color:#000;
+	color:#fff;
+    opacity: 1;
+    border: 1px solid #000;
+}
+
+.mem_delcl_btn {
+    background-color: #FFF;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.mem_del_btn {
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border: none;
+    background: none;
+    box-shadow: none;
+    text-shadow: none;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 0.4px;
+    line-height: 1;
+    outline: none !important
+}
+
+.mem_del_btn:hover {
+	background-color:#D7DF01;
+	color:#fff;
+    opacity: 1;
+    border: 1px solid #000;
+}
+
+.mem_del_btn {
+    background-color: yellow;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    width: 200px;
+}
