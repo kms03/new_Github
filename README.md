@@ -20,3 +20,6 @@
 ### 5. 게시판
 ![board](https://user-images.githubusercontent.com/66577309/83991790-e45a7000-a988-11ea-9ee8-4eb215f52b34.JPG)
 ### 6. 관리자 
+![admin](https://user-images.githubusercontent.com/66577309/83991795-e58b9d00-a988-11ea-9602-5c19c1e5cad1.JPG)
+
+![admin-board](https://user-images.githubusercontent.com/66577309/83991798-e6bcca00-a988-11ea-9a2b-c3de31b4bcb5.JPG)
