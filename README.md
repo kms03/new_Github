@@ -44,9 +44,15 @@
 
 ### 5. 게시판
 ![board](https://user-images.githubusercontent.com/66577309/83991790-e45a7000-a988-11ea-9ee8-4eb215f52b34.JPG)
-* 
+* 작성된 게시글이 표시되어 나타난다.
+* 로그인한 사용자는 글쓰기 버튼을 눌러서 글쓰기를 할 수 있다.
 
 ### 6. 관리자
 ![admin](https://user-images.githubusercontent.com/66577309/83991795-e58b9d00-a988-11ea-9602-5c19c1e5cad1.JPG)
+* 관리자 페이지 중 회원 목록 페이지가 나타난다.
+* 회원 가입한 모든 사용자들의 정보가 표시된다.
+* 해당 아이디를 클릭 시 그 회원의 상세정보가 표시되고 회원정보 수정 및 삭제가 가능하다.
 
 ![admin-board](https://user-images.githubusercontent.com/66577309/83991798-e6bcca00-a988-11ea-9a2b-c3de31b4bcb5.JPG)
+* 공지사항 게시판 페이지이다.
+* 관리자로 로그인할때만 공지사항 게시판 글쓰기를 할 수 있다.
