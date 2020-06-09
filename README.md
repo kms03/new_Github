@@ -9,8 +9,12 @@
 [6. 관리자](#6-관리자)
 ### 1. 로그인 및 회원 가입
 ![login](https://user-images.githubusercontent.com/66577309/83991951-7a8e9600-a989-11ea-84e4-ae8bfc304167.JPG)
+* 회원 아이디가 존재하면 아이디 및 비밀번호를 입력 후 로그인한다 -> 메인 페이지로 
+* 회원 가입 버튼을 클릭시 회원 가입 페이지로 이동
 
 ![insertmember](https://user-images.githubusercontent.com/66577309/83991954-7d898680-a989-11ea-9dee-f847ab0c577f.JPG)
+* 필수 입력 항목 : 아이디, 중복체크, 비밀번호, 비밀번호 확인, 이름, 이메일, 주소, 상세 주소, 
+
 ### 2. 마이페이지
 ![mypage](https://user-images.githubusercontent.com/66577309/83991779-dd336200-a988-11ea-9e0f-4b3bb45e5e76.JPG)
 ### 3. 관리
