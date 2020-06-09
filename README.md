@@ -1,12 +1,12 @@
 # 자산관리 프로젝트 소개
 ![main](https://user-images.githubusercontent.com/66577309/83989759-698e5680-a982-11ea-92f7-6ef4b41f5666.PNG)
 ## 목차
-[1. 로그인 및 회원 가입](#1-로그인-및-회원-가입)
-2. 마이페이지
-3. 관리
-4. 조회
-5. 게시판
-6. 관리자 
+[1. 로그인 및 회원 가입](#1-로그인-및-회원-가입)<br>
+[2. 마이페이지](#마이페이지)<br>
+[3. 관리](#관리)<br>
+[4. 조회](#조회)<br>
+[5. 게시판](#게시판)<br>
+[6. 관리자](#마이페이지)
 ### 1. 로그인 및 회원 가입
 ![login](https://user-images.githubusercontent.com/66577309/83991951-7a8e9600-a989-11ea-84e4-ae8bfc304167.JPG)
 
@@ -21,7 +21,7 @@
 ![reference2](https://user-images.githubusercontent.com/66577309/83991788-e3294300-a988-11ea-8323-61b5aa344d63.JPG)
 ### 5. 게시판
 ![board](https://user-images.githubusercontent.com/66577309/83991790-e45a7000-a988-11ea-9ee8-4eb215f52b34.JPG)
-### 6. 관리자 
+### 6. 관리자
 ![admin](https://user-images.githubusercontent.com/66577309/83991795-e58b9d00-a988-11ea-9602-5c19c1e5cad1.JPG)
 
 ![admin-board](https://user-images.githubusercontent.com/66577309/83991798-e6bcca00-a988-11ea-9a2b-c3de31b4bcb5.JPG)
