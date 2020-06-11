@@ -21,6 +21,15 @@
 
 ### 3. 개체 관계 다이어그램
 ![image](https://user-images.githubusercontent.com/66577309/84334124-8c13b000-abcc-11ea-8fc9-8a4674df2eba.png)
+* OUTGOINGS : 지출 테이블
+* INCOMINGS : 수입 테이블
+* MEMBER : 사용자 테이블
+* WORKER : 관리자 테이블
+* NOTICE_BOARD : 공지사항 테이블
+* BOARD : 자유 게시판 테이블
+* BOARD_REPLY : 댓글 테이블
+* ADDRESS : 주소 테이블
+
 
 ### 4. 화면 구성
 ### 4-1. 로그인 및 회원 가입
