@@ -4,7 +4,7 @@
 ## 목차
 [1. 플로우 차트](#1-플로우-차트)<br>
 [2. 개발 ](#2-개발-환경)<br>
-[3. 개체 관계 다이어그램 ERD: Entity-Relationship Diagram](#3-개체-관계-다이어그램-ERD:-Entity-Relationship Diagram)<br>
+[3. 개체 관계 다이어그램 ERD: Entity-Relationship Diagram](#3. 개체 관계 다이어그램 ERD: Entity-Relationship Diagram)<br>
 [4-1. 로그인 및 회원 가입](#4-1-로그인-및-회원-가입)<br>
 [4-2. 마이페이지](#4-2-마이페이지)<br>
 [4-3. 수입 및 지출 입력 페이지](#4-3-수입-및-지출-입력-페이지)<br>
