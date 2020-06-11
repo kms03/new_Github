@@ -2,9 +2,9 @@
 ![main](https://user-images.githubusercontent.com/66577309/83989759-698e5680-a982-11ea-92f7-6ef4b41f5666.PNG)
 
 ## 목차
-[1. 플로우 차트](#1-플로우-차트)
-2.
-3.
+[1. 플로우 차트](#1-플로우-차트)<br>
+2.[2. 개발 ]<br>
+3.[3. 개체-관계 다이어그램(ERD: Entity-Relationship Diagram)]<br>
 [4-1. 로그인 및 회원 가입](#4-1-로그인-및-회원-가입)<br>
 [4-2. 마이페이지](#4-2-마이페이지)<br>
 [4-3. 수입 및 지출 입력 페이지](#4-3-수입-및-지출-입력-페이지)<br>
@@ -15,6 +15,9 @@
 ### 1. 플로우 차트
 ![자산관리 페이지](https://user-images.githubusercontent.com/66577309/84332987-676a0900-abc9-11ea-826c-4841c13080a4.JPG)
 
+### 2. 개발 환경
+
+### 3. 개체-관계 다이어그램(ERD: Entity-Relationship Diagram)
 
 ### 4-1. 로그인 및 회원 가입
 ![login](https://user-images.githubusercontent.com/66577309/83991951-7a8e9600-a989-11ea-84e4-ae8bfc304167.JPG)
