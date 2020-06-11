@@ -4,7 +4,7 @@
 ## 목차
 [1. 플로우 차트](#1-플로우-차트)<br>
 [2. 개발 ](#2-개발-환경)<br>
-[3. 개체 관계 다이어그램 ERD: Entity-Relationship Diagram](#3.-개체-관계-다이어그램-erd:-entity-relationship-diagram)<br>
+[3. 개체 관계 다이어그램](#3-개체-관계-)<br>
 [4-1. 로그인 및 회원 가입](#4-1-로그인-및-회원-가입)<br>
 [4-2. 마이페이지](#4-2-마이페이지)<br>
 [4-3. 수입 및 지출 입력 페이지](#4-3-수입-및-지출-입력-페이지)<br>
@@ -18,7 +18,7 @@
 ### 2. 개발 환경
 ![개발 환경](https://user-images.githubusercontent.com/66577309/84333399-9e8cea00-abca-11ea-85f9-a0ff73b01e36.JPG)
 
-### 3. 개체 관계 다이어그램 ERD: Entity-Relationship Diagram
+### 3. 개체 관계 다이어그램
 ![자산관리 페이지](https://user-images.githubusercontent.com/66577309/84332987-676a0900-abc9-11ea-826c-4841c13080a4.JPG)
 
 ### 4-1. 로그인 및 회원 가입
